@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - MathCalc",
+      "request": "launch",
+      "mainClass": "MathCalc",
+      "projectName": "java-learn_3b4b849b"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - SwitchCase",
+      "request": "launch",
+      "mainClass": "SwitchCase",
+      "projectName": "java-learn_3b4b849b"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - CalcDivFor",
       "request": "launch",
       "mainClass": "CalcDivFor",

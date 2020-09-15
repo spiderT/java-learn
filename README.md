@@ -713,6 +713,116 @@ if(布尔表达式 1){
 
 ### 1.7. Java switch case 语句
 
+switch case 语句判断一个变量与一系列值中某个值是否相等，每个值称为一个分支。  
+
+```java
+switch(expression){
+   case value :
+      //语句
+      break; //可选
+   case value :
+      //语句
+      break; //可选
+   //你可以有任意数量的case语句
+   default : //可选
+      //语句
+}
+```
+
+switch case 执行时，一定会先进行匹配，匹配成功返回当前 case 的值，再根据是否有 break，判断是否继续输出，或是跳出判断。
+
+### 1.8. Java Number & Math 类
+
+所有的包装类（Integer、Long、Byte、Double、Float、Short）都是抽象类 Number 的子类。
+
+| 装类 | 基本数据类型 |
+| --- | --- |
+| Boolean | boolean |
+| Byte | byte |
+| Short | short |
+| Integer | int |
+| Long | long |
+| Character | char |
+| Float | float |
+| Double | double |
+
+这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类。相似的，编译器也可以把一个对象拆箱为内置类型。Number 类属于 java.lang 包。  
+
+Java 的 Math 包含了用于执行基本数学运算的属性和方法，如初等指数、对数、平方根和三角函数。  
+
+Math 的方法都被定义为 static 形式，通过 Math 类可以在主函数中直接调用。
+
+```java
+public class Test {  
+    public static void main (String []args)  
+    {  
+        System.out.println("90 度的正弦值：" + Math.sin(Math.PI/2));  
+        System.out.println("0度的余弦值：" + Math.cos(0));  
+        System.out.println("60度的正切值：" + Math.tan(Math.PI/3));  
+        System.out.println("1的反正切值： " + Math.atan(1));  
+        System.out.println("π/2的角度值：" + Math.toDegrees(Math.PI/2));  
+        System.out.println(Math.PI);  
+    }  
+}
+```
+
+### 1.9. Java Character 类
+
+Character 类用于对单个字符进行操作。
+
+```java
+char ch = 'a';
+ 
+// Unicode 字符表示形式
+char uniChar = '\u039A'; 
+ 
+// 字符数组
+char[] charArray ={ 'a', 'b', 'c', 'd', 'e' };
+```
+
+### 1.10. Java String 类
+
+在 Java 中字符串属于对象，Java 提供了 String 类来创建和操作字符串。
+
+```java
+public class StringDemo{
+   public static void main(String args[]){
+      char[] helloArray = { 'r', 'u', 'n', 'o', 'o', 'b'};
+      String helloString = new String(helloArray);  
+      System.out.println( helloString );
+   }
+}
+```
+
+StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。  
+StringBuilder 类在 Java 5 中被提出，它和 StringBuffer 之间的最大不同在于 StringBuilder 的方法不是线程安全的（不能同步访问）。  
+由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。
+
+```java
+public class Test{
+  public static void main(String args[]){
+    StringBuffer sBuffer = new StringBuffer("java：");
+    sBuffer.append("www");
+    sBuffer.append(".java");
+    sBuffer.append(".com");
+    System.out.println(sBuffer);  
+  }
+}
+```
+
+### 1.11. Java 数组
+
+声明数组变量
+
+```text
+dataType[] arrayRefVar;   // 首选的方法
+或
+dataType arrayRefVar[];  // 效果相同，但不是首选方法
+```
+
+
+
+
 
 
 
