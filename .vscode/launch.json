@@ -6,6 +6,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - ExcepTest",
+      "request": "launch",
+      "mainClass": "ExcepTest",
+      "projectName": "java-learn_6f5df7d0"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ScannerDemo",
+      "request": "launch",
+      "mainClass": "ScannerDemo",
+      "projectName": "java-learn_6f5df7d0"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - DirList",
+      "request": "launch",
+      "mainClass": "DirList",
+      "projectName": "java-learn_6f5df7d0"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - DateDemo",
+      "request": "launch",
+      "mainClass": "DateDemo",
+      "projectName": "java-learn_6f5df7d0"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ScoreArray",
+      "request": "launch",
+      "mainClass": "ScoreArray",
+      "projectName": "java-learn_6f5df7d0"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - CreateArray",
+      "request": "launch",
+      "mainClass": "CreateArray",
+      "projectName": "java-learn_6f5df7d0"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - MathCalc",
       "request": "launch",
       "mainClass": "MathCalc",

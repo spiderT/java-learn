@@ -820,6 +820,194 @@ dataType[] arrayRefVar;   // 首选的方法
 dataType arrayRefVar[];  // 效果相同，但不是首选方法
 ```
 
+```java
+public class CreateArray {
+    public static void main(String[] args) {
+        int[] intArray = new int[9];
+
+        System.out.println(intArray[2]);
+
+        double[] doubleArray = new double[100];
+
+        System.out.println(doubleArray[66]);
+
+    }
+}
+```
+
+#### 多维数组
+
+多维数组可以看成是数组的数组，比如二维数组就是一个特殊的一维数组，其每一个元素都是一个一维数组，例如：  
+
+String str[][] = new String[3][4];  
+
+### 1.12. Java 日期时间
+
+java.util 包提供了 Date 类来封装当前的日期和时间。 Date 类提供两个构造函数来实例化 Date 对象。  
+
+第一个构造函数使用当前日期和时间来初始化对象。  
+
+Date( )  
+
+第二个构造函数接收一个参数，该参数是从1970年1月1日起的毫秒数。  
+
+Date(long millisec)  
+
+```java
+import java.util.Date;
+  
+public class DateDemo {
+   public static void main(String args[]) {
+       // 初始化 Date 对象
+       Date date = new Date();
+        
+       // 使用 toString() 函数显示日期时间
+       System.out.println(date.toString());
+   }
+}
+```
+
+使用 SimpleDateFormat 格式化日期
+
+```java
+import  java.util.*;
+import java.text.*;
+ 
+public class DateDemo {
+   public static void main(String args[]) {
+ 
+      Date dNow = new Date( );
+      SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+ 
+      System.out.println("当前时间为: " + ft.format(dNow));
+   }
+}
+```
+
+使用printf格式化日期  
+printf 方法可以很轻松地格式化时间和日期。使用两个字母格式，它以 %t 开头并且以下面表格中的一个字母结尾。  
+
+|转换符 | 说明 | 示例 |
+| --- | --- | --- |
+| c | 包括全部日期和时间信息 | 星期六 十月 27 14:21:20 CST 2007 |
+| F | "年-月-日"格式 | 2007-10-27 |
+| D | "月/日/年"格式 | 10/27/07 |
+| r | "HH:MM:SS PM"格式（12时制） | 02:25:51 下午 |
+| T | "HH:MM:SS"格式（24时制） | 14:28:16 |
+| R | "HH:MM"格式（24时制）| 14:28 |
+
+### 1.13. Java 正则表达式
+
+java.util.regex 包主要包括以下三个类：  
+
+Pattern 类：  
+pattern 对象是一个正则表达式的编译表示。Pattern 类没有公共构造方法。要创建一个 Pattern 对象，你必须首先调用其公共静态编译方法，它返回一个 Pattern 对象。该方法接受一个正则表达式作为它的第一个参数。  
+
+Matcher 类：  
+Matcher 对象是对输入字符串进行解释和匹配操作的引擎。与Pattern 类一样，Matcher 也没有公共构造方法。你需要调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。  
+
+PatternSyntaxException：  
+PatternSyntaxException 是一个非强制异常类，它表示一个正则表达式模式中的语法错误。  
+
+### 1.14. Java 异常处理
+
+三种类型的异常：  
+
+检查性异常：最具代表的检查性异常是用户错误或问题引起的异常，这是程序员无法预见的。例如要打开一个不存在文件时，一个异常就发生了，这些异常在编译时不能被简单地忽略。  
+运行时异常： 运行时异常是可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略。  
+错误： 错误不是异常，而是脱离程序员控制的问题。错误在代码中通常被忽略。例如，当栈溢出时，一个错误就发生了，它们在编译也检查不到的。  
+
+#### 捕获异常
+
+使用 try 和 catch 关键字可以捕获异常。try/catch 代码块放在异常可能发生的地方。
+
+```java
+try
+{
+   // 程序代码
+}catch(ExceptionName e1)
+{
+   //Catch 块
+}
+```
+
+```java
+import java.io.*;
+public class ExcepTest{
+   public static void main(String args[]){
+      try{
+         int a[] = new int[2];
+         System.out.println("Access element three :" + a[3]);
+      }catch(ArrayIndexOutOfBoundsException e){
+         System.out.println("Exception thrown  :" + e);
+      }
+      System.out.println("Out of the block");
+   }
+}
+```
+
+#### throws/throw 关键字
+
+如果一个方法没有捕获到一个检查性异常，那么该方法必须使用 throws 关键字来声明。throws 关键字放在方法签名的尾部。  
+
+也可以使用 throw 关键字抛出一个异常，无论它是新实例化的还是刚捕获到的。  
+
+```java
+import java.io.*;
+public class className
+{
+  public void deposit(double amount) throws RemoteException
+  {
+    throw new RemoteException();
+  }
+}
+```
+
+#### finally关键字
+
+finally 关键字用来创建在 try 代码块后面执行的代码块。  
+
+无论是否发生异常，finally 代码块中的代码总会被执行。  
+
+在 finally 代码块中，可以运行清理类型等收尾善后性质的语句。  
+
+```java
+public class ExcepTest{
+  public static void main(String args[]){
+    int a[] = new int[2];
+    try{
+       System.out.println("Access element three :" + a[3]);
+    }catch(ArrayIndexOutOfBoundsException e){
+       System.out.println("Exception thrown  :" + e);
+    }
+    finally{
+       a[0] = 6;
+       System.out.println("First element value: " +a[0]);
+       System.out.println("The finally statement is executed");
+    }
+  }
+}
+```
+
+#### 声明自定义异常
+
+在 Java 中你可以自定义异常。编写自己的异常类时需要记住下面的几点。
+
+- 所有异常都必须是 Throwable 的子类。
+- 如果希望写一个检查性异常类，则需要继承 Exception 类。
+- 如果你想写一个运行时异常类，那么需要继承 RuntimeException 类。
+
+```java
+class MyException extends Exception{
+}
+```
+
+### 1.15. Java 继承
+
+继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。
+
+
+
 
 
 
